@@ -18,10 +18,13 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.74.1"
+    "@raycast/api": "^1.74.1",
+    "@raycast/utils": "^1.15.0",
+    "luxon": "^3.4.4"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.8",
+    "@types/luxon": "^3.4.2",
     "@types/node": "20.8.10",
     "@types/react": "18.2.27",
     "eslint": "^8.57.0",
