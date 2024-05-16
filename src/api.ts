@@ -32,7 +32,7 @@ export function useBoxScore(gameId: number) {
 
   let game;
 
-  if (data.gameState === "FUT") {
+  if (data.gameState === "FUT" || data.gameState === "PRE") {
     game = { state: "pregame" as const, data: data as PreGame };
   } else if (data.gameState === "LIVE") {
     game = { state: "live" as const, data };
