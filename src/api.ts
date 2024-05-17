@@ -1,6 +1,7 @@
 import { NextWeek } from "./types/NextWeek";
 import { useFetch } from "@raycast/utils";
 import { PreGame } from "./types/PreGame";
+import { LiveGame } from "./types/LiveGame";
 
 const baseUrl = "https://api-web.nhle.com/v1";
 
@@ -35,7 +36,7 @@ export function useBoxScore(gameId: number) {
   if (data.gameState === "FUT" || data.gameState === "PRE") {
     game = { state: "pregame" as const, data: data as PreGame };
   } else if (data.gameState === "LIVE") {
-    game = { state: "live" as const, data };
+    game = { state: "live" as const, data: data as LiveGame };
   } else {
     game = { state: "final" as const, data };
   }

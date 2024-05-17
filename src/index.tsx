@@ -1,4 +1,4 @@
-import { List } from "@raycast/api";
+import { Color, List } from "@raycast/api";
 import { DateTime } from "luxon";
 import GameMetadata from "./GameMetadata";
 import { useTodaysGames } from "./api";
@@ -21,7 +21,18 @@ export default function GameList() {
                 key={game.id}
                 icon={game.homeTeam.abbrev == "DAL" ? game.homeTeam.logo : game.homeTeam.darkLogo}
                 title={`${game.awayTeam.abbrev} at ${game.homeTeam.abbrev}`}
-                accessories={[{ text: gameDate.toLocaleString(DateTime.TIME_SIMPLE) }]}
+                accessories={[
+                  game.gameState === "LIVE"
+                    ? {
+                        tag: {
+                          value: "LIVE",
+                          color: Color.Green,
+                        },
+                      }
+                    : {
+                        text: gameDate.toLocaleString(DateTime.TIME_SIMPLE),
+                      },
+                ]}
                 detail={<List.Item.Detail metadata={<GameMetadata gameId={game.id} />} />}
               />
             );
