@@ -4,7 +4,7 @@ type SeriesAbbrev = "R1" | "R2" | "R3" | "R4";
 type PeriodType = "REG";
 type Market = "N";
 type GameScheduleState = "OK";
-type GameState = "FUT" | "OFF" | "LIVE";
+type GameState = "FUT" | "OFF" | "LIVE" | "CRIT";
 type CountryCode = "CA" | "US";
 
 export interface NextWeek {

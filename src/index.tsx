@@ -22,7 +22,7 @@ export default function GameList() {
                 icon={game.homeTeam.abbrev == "DAL" ? game.homeTeam.logo : game.homeTeam.darkLogo}
                 title={`${game.awayTeam.abbrev} at ${game.homeTeam.abbrev}`}
                 accessories={[
-                  game.gameState === "LIVE"
+                  game.gameState === "LIVE" || game.gameState === "CRIT"
                     ? {
                         tag: {
                           value: "LIVE",

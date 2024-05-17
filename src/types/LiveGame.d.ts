@@ -53,7 +53,7 @@ type Goalie = Player & {
   goalsAgainst: number;
 };
 
-type GameState = "LIVE" | "OFF";
+type GameState = "LIVE" | "OFF" | "CRIT";
 
 type GameScheduleState = "OK";
 
