@@ -1,7 +1,7 @@
 import { NextWeek } from "./types/NextWeek";
 import { useFetch } from "@raycast/utils";
 import { PreGame } from "./types/PreGame";
-import { LiveGame } from "./types/LiveGame";
+import { LiveOrFinalGame } from "./types/LiveOrFinalGame";
 
 const baseUrl = "https://api-web.nhle.com/v1";
 
@@ -35,10 +35,10 @@ export function useBoxScore(gameId: number) {
 
   if (data.gameState === "FUT" || data.gameState === "PRE") {
     game = { state: "pregame" as const, data: data as PreGame };
-  } else if (data.gameState === "LIVE" || data.gameState === "CRIT") {
-    game = { state: "live" as const, data: data as LiveGame };
+  } else if (data.gameState === "LIVE" || data.gameState === "CRIT" || data.gameState === "FINAL") {
+    game = { state: "live" as const, data: data as LiveOrFinalGame };
   } else {
-    game = { state: "final" as const, data };
+    game = { state: "final" as const, data: data as LiveOrFinalGame };
   }
 
   return { isLoading, game };

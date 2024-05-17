@@ -53,7 +53,7 @@ type Goalie = Player & {
   goalsAgainst: number;
 };
 
-type GameState = "LIVE" | "OFF" | "CRIT";
+type GameState = "FUT" | "OFF" | "LIVE" | "CRIT" | "FINAL";
 
 type GameScheduleState = "OK";
 
@@ -106,7 +106,7 @@ type Summary = {
   }[];
 };
 
-export type LiveGame = {
+export type LiveOrFinalGame = {
   id: number;
   season: number;
   gameType: number;

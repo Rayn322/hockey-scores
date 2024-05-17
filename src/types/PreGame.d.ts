@@ -40,7 +40,7 @@ export type PreGame = {
   easternUTCOffset: string;
   venueUTCOffset: string;
   tvBroadcasts: TvBroadcast[];
-  gameState: "FUT";
+  gameState: "FUT" | "OFF" | "LIVE" | "CRIT" | "FINAL";
   gameScheduleState: "OK";
   regPeriods: number;
   awayTeam: Team;
