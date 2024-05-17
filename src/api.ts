@@ -35,8 +35,6 @@ export function useBoxScore(gameId: number) {
 
   if (data.gameState === "FUT" || data.gameState === "PRE") {
     game = { state: "pregame" as const, data: data as PreGame };
-  } else if (data.gameState === "LIVE" || data.gameState === "CRIT" || data.gameState === "FINAL") {
-    game = { state: "live" as const, data: data as LiveOrFinalGame };
   } else {
     game = { state: "final" as const, data: data as LiveOrFinalGame };
   }

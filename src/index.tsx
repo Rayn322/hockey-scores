@@ -29,11 +29,17 @@ export default function GameList() {
                   const aDate = DateTime.fromISO(a.startTimeUTC);
                   const bDate = DateTime.fromISO(b.startTimeUTC);
 
-                  if (a.gameState === "FINAL" && b.gameState !== "FINAL") {
+                  if (
+                    (a.gameState === "FINAL" && b.gameState !== "FINAL") ||
+                    (a.gameState === "OFF" && b.gameState !== "OFF")
+                  ) {
                     return 1;
                   }
 
-                  if (a.gameState !== "FINAL" && b.gameState === "FINAL") {
+                  if (
+                    (a.gameState !== "FINAL" && b.gameState === "FINAL") ||
+                    (a.gameState !== "OFF" && b.gameState === "OFF")
+                  ) {
                     return -1;
                   }
 
@@ -64,7 +70,9 @@ export default function GameList() {
                             }
                           : {
                               text:
-                                game.gameState === "FINAL" ? "FINAL" : gameDate.toLocaleString(DateTime.TIME_SIMPLE),
+                                game.gameState === "FINAL" || game.gameState === "OFF"
+                                  ? "FINAL"
+                                  : gameDate.toLocaleString(DateTime.TIME_SIMPLE),
                             },
                       ]}
                       detail={<List.Item.Detail metadata={<GameMetadata gameId={game.id} />} />}
