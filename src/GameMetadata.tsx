@@ -20,8 +20,8 @@ export default function GameMetadata({ gameId }: { gameId: number }) {
 function PreGame({ game }: { game: PreGame }) {
   return (
     <List.Item.Detail.Metadata>
-      <List.Item.Detail.Metadata.Label title="Home" text={game.homeTeam.name.default} />
-      <List.Item.Detail.Metadata.Label title="Away" text={game.awayTeam.name.default} />
+      <List.Item.Detail.Metadata.Label title="Home" text={game.homeTeam.commonName.default} />
+      <List.Item.Detail.Metadata.Label title="Away" text={game.awayTeam.commonName.default} />
       <List.Item.Detail.Metadata.Separator />
       <List.Item.Detail.Metadata.Label title="Location" text={game.venueLocation.default} />
       <List.Item.Detail.Metadata.Label title="Venue" text={game.venue.default} />
@@ -32,8 +32,8 @@ function PreGame({ game }: { game: PreGame }) {
 function LiveOrFinalGame({ game }: { game: LiveOrFinalGame }) {
   return (
     <List.Item.Detail.Metadata>
-      <List.Item.Detail.Metadata.Label title={game.awayTeam.name.default} text={game.awayTeam.score.toString()} />
-      <List.Item.Detail.Metadata.Label title={game.homeTeam.name.default} text={game.homeTeam.score.toString()} />
+      <List.Item.Detail.Metadata.Label title={game.awayTeam.commonName.default} text={game.awayTeam.score.toString()} />
+      <List.Item.Detail.Metadata.Label title={game.homeTeam.commonName.default} text={game.homeTeam.score.toString()} />
       <List.Item.Detail.Metadata.Separator />
       <List.Item.Detail.Metadata.Label title="Location" text={game.venueLocation.default} />
       <List.Item.Detail.Metadata.Label title="Venue" text={game.venue.default} />

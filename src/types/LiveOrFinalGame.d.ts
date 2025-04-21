@@ -4,7 +4,7 @@ type Venue = {
 
 type Team = {
   id: number;
-  name: {
+  commonName: {
     default: string;
   };
   abbrev: string;
