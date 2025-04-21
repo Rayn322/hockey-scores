@@ -1,3 +1,3 @@
 # Hockey Scores
 
-Displays today's NHL games
+Displays today's NHL games in Raycast.
