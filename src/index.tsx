@@ -1,7 +1,8 @@
-import { Color, List } from "@raycast/api";
+import { Action, ActionPanel, Color, List } from "@raycast/api";
 import { DateTime } from "luxon";
 import GameMetadata from "./GameMetadata";
 import { useTodaysGames } from "./api";
+import { getFullNhlUrl } from "./util";
 
 export default function GameList() {
   const { isLoading, data } = useTodaysGames();
@@ -55,11 +56,20 @@ export default function GameList() {
                 })
                 .map((game) => {
                   const gameDate = DateTime.fromISO(game.startTimeUTC);
+
                   return (
                     <List.Item
                       key={game.id}
                       icon={game.homeTeam.abbrev == "DAL" ? game.homeTeam.logo : game.homeTeam.darkLogo}
                       title={`${game.awayTeam.abbrev} at ${game.homeTeam.abbrev}`}
+                      actions={
+                        <ActionPanel>
+                          <Action.OpenInBrowser title="Open Game Center" url={getFullNhlUrl(game.gameCenterLink)} />
+                          {game.seriesUrl && (
+                            <Action.OpenInBrowser title="Open Series Details" url={getFullNhlUrl(game.seriesUrl)} />
+                          )}
+                        </ActionPanel>
+                      }
                       accessories={[
                         game.gameState === "LIVE" || game.gameState === "CRIT"
                           ? {
