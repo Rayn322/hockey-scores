@@ -6,8 +6,7 @@ import { LiveOrFinalGame } from "./types/LiveOrFinalGame";
 const baseUrl = "https://api-web.nhle.com/v1";
 
 export function useTodaysGames() {
-  const { isLoading, data } = useFetch<NextWeek>(`${baseUrl}/schedule/now`);
-  return { isLoading, data };
+  return useFetch<NextWeek>(`${baseUrl}/schedule/now`);
 }
 
 // type BoxScore =
