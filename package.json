@@ -18,15 +18,15 @@
     }
   ],
   "dependencies": {
-    "@raycast/api": "^1.96.0",
-    "@raycast/utils": "^1.19.1",
+    "@raycast/api": "^2.11.1",
+    "@raycast/utils": "^2.3.3",
     "luxon": "^3.6.1"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^2.0.4",
     "@types/luxon": "^3.6.2",
-    "@types/node": "22.13.10",
-    "@types/react": "19.0.10",
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
     "eslint": "^9.25.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"
@@ -38,5 +38,8 @@
     "lint": "ray lint",
     "publish": "npx @raycast/api@latest publish"
   },
-  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677"
+  "packageManager": "pnpm@10.8.1+sha512.c50088ba998c67b8ca8c99df8a5e02fd2ae2e2b29aaf238feaa9e124248d3f48f9fb6db2424949ff901cffbb5e0f0cc1ad6aedb602cd29450751d11c35023677",
+  "allowScripts": {
+    "esbuild@0.27.7": true
+  }
 }
